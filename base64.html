@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Base64</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+
+<div class="jumbotron">
+	<h1>Base64</h1>
+	<p>Convert to and from Base64 using <a href="https://developer.mozilla.org/En/DOM/Window.btoa">bota()</a> and <a href="https://developer.mozilla.org/En/DOM/Window.atob">atob()</a>. Requires a Webkit or Gecko-based browser.</p>
+	<div class="row show-grid">
+		<div class="col-lg-6">
+			<p><textarea class="form-control" rows="12" id="decoded"></textarea></p>
+			<p><a class="btn btn-primary btn-large" id="encode">Encode</a>&nbsp;<a class="btn btn-danger btn-large" id="cleardecoded">Clear</a></p>
+		</div>
+		<div class="col-lg-6">
+			<p><textarea class="form-control" rows="12" id="encoded"></textarea></p>
+			<p><a class="btn btn-primary btn-large" id="decode">Decode</a>&nbsp;<a class="btn btn-danger btn-large" id="clearencoded">Clear</a></p>
+		</div>
+	</div>
+</div>
+
+<script>
+$("#encode").click(function(){
+	$('textarea#encoded').val(window.btoa($('textarea#decoded').val()));
+});
+</script>
+
+<script>
+$("#decode").click(function(){
+	$('textarea#decoded').val(window.atob($('textarea#encoded').val()));
+});
+</script>
+
+<script>
+$("#cleardecoded").click(function(){
+	$('textarea#decoded').val("");
+});
+</script>
+
+<script>
+$("#clearencoded").click(function(){
+	$('textarea#encoded').val("");
+});
+</script>
+
+</body>
+</html>
